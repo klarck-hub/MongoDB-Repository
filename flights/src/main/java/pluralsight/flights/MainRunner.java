@@ -5,6 +5,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import pluralsight.flights.dal.FlightPlanDataService;
 
+import java.time.LocalDateTime;
+
 /*
 This component will be executed by Spring Framework immediately after application
 bootstrap
@@ -18,8 +20,7 @@ public class MainRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
-        System.out.println(this.flightPlanDataService.findInternationalCrossingFrance());
+        this.flightPlanDataService.changeDepartureTimeById("65c35bd357d69d3ccf95dd31", LocalDateTime.now());
 
     }
 }

@@ -112,11 +112,13 @@ public class FlightPlanRepositoryDataService implements FlightPlanDataService {
 
     @Override
     public void changeDepartureTimeById(String id, LocalDateTime newDepartureTime) {
+        this.repository.findAndChangeDepartureTimeById(id,newDepartureTime);
 
     }
 
     @Override
     public void incrementDurationForFlightsInParis(int minutesToAdd) {
+        this.repository.updateDurationWithDelayForDestination("Paris",minutesToAdd);
 
     }
 
