@@ -18,7 +18,8 @@ public class MainRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        this.flightPlanDataService.insertInitialFlightPlans();
+
+        System.out.println(this.flightPlanDataService.findInternationalCrossingFrance());
 
     }
 }

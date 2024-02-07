@@ -1,5 +1,6 @@
 package pluralsight.flights.dal;
 
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import pluralsight.flights.domain.AircraftFactory;
 import pluralsight.flights.domain.FlightPlan;
@@ -91,22 +92,22 @@ public class FlightPlanRepositoryDataService implements FlightPlanDataService {
 
     @Override
     public FlightPlan findById(String id) {
-        return null;
+        return this.repository.findById(id).orElse(null);
     }
 
     @Override
     public List<FlightPlan> findInternationalCrossingFrance() {
-        return null;
+        return this.repository.findInternationalCrossing("France");
     }
 
     @Override
     public List<FlightPlan> findFirstTwoFlightsWhichLastBetweenOneAndThreeHours() {
-        return null;
+        return this.repository.findByFlightDurationBetween(60,180, PageRequest.of(0,2));
     }
 
     @Override
     public List<FlightPlan> findBoeingFlightsAndOrderBySeatCapacity() {
-        return null;
+        return this.repository.findByAircraftModelContainsOrderByAircraftSeatCapacity("Boeing");
     }
 
     @Override
