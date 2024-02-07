@@ -20,7 +20,7 @@ public class MainRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        this.flightPlanDataService.changeDepartureTimeById("65c35bd357d69d3ccf95dd31", LocalDateTime.now());
+        this.flightPlanDataService.deleteAll();
 
     }
 }

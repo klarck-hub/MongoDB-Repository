@@ -124,16 +124,17 @@ public class FlightPlanRepositoryDataService implements FlightPlanDataService {
 
     @Override
     public void deleteById(String id) {
-
+        this.repository.deleteById(id);
     }
 
     @Override
-    public void deleteAllFromParis() {
+    public int deleteAllFromParis() {
+        return (this.repository.deleteByDepartureCityContains("Paris"));
 
     }
 
     @Override
     public void deleteAll() {
-
+        this.repository.deleteAll();
     }
 }

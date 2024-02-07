@@ -183,13 +183,15 @@ public class FlightPlanTemplateDataService implements FlightPlanDataService {
     }
 
     @Override
-    public void deleteAllFromParis() {
+    public int deleteAllFromParis() {
         var flightsFromParis = new Query(Criteria.where("departure").regex("Paris"));
         mongoTemplate.remove(flightsFromParis, FlightPlan.class);
+        return 0;
     }
 
     @Override
     public void deleteAll(){
         this.mongoTemplate.remove(new Query(), FlightPlan.class);
+
     }
 }

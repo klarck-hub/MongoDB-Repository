@@ -22,7 +22,7 @@ public interface FlightPlanDataService {
 
     void deleteById(String id);
 
-    void deleteAllFromParis();
+    int deleteAllFromParis();
 
     void deleteAll();
 }

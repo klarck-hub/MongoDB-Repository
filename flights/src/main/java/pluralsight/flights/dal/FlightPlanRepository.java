@@ -1,6 +1,7 @@
 package pluralsight.flights.dal;
 
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.mongodb.repository.DeleteQuery;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.mongodb.repository.Update;
@@ -25,6 +26,10 @@ public interface FlightPlanRepository extends MongoRepository<FlightPlan,String>
     @Query("{'destination' :{'$regex' : ?0}}")
     @Update("{ '$inc' : {'flightDuration' : ?1} }")
     void updateDurationWithDelayForDestination(String destination, int delay);
+
+    int deleteByDepartureCityContains(String city);
+
+
 
 
 
