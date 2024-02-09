@@ -1,8 +1,14 @@
 package pluralsight.flights.domain;
 
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+@Document
 public class Aircraft {
+
+
+
+    private String id;
     private String model;
     @Field("capacity")
     private int seatCapacity;
@@ -25,6 +31,8 @@ public class Aircraft {
     public WakeTurbulence getWakeTurbulence() {
         return wakeTurbulence;
     }
+
+    public String getId() { return id; }
 
     @Override
     public String toString() {

@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.time.LocalDateTime;
@@ -32,6 +33,7 @@ public class FlightPlan {
     @TextIndexed
     private List<String> crossedCountries;
     private boolean isInternational;
+    @DocumentReference
     private Aircraft aircraft;
 
     // Used by Spring Data MongoDB for object creation
