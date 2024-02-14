@@ -29,7 +29,9 @@ public class MainRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        var embraer175 = this.aircraftRepository.insert(AircraftFactory.buildEmbraerE175());
+        aircraftRepository.deleteAll();
+        flightPlanRepository.deleteAll();
+
 
         flightPlanRepository.insert( new FlightPlan(
                 "Vienna",
@@ -38,7 +40,7 @@ public class MainRunner implements CommandLineRunner {
                 60*70,
                 List.of("Austria","Hungary","Romania"),
                 true,
-                embraer175
+                AircraftFactory.buildEmbraerE175()
 
         ));
 
